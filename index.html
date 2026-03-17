@@ -9,23 +9,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.25s ease-in-out;
 }
 
+/* BACKGROUND IMAGE + OVERLAY */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     color: white;
-    background: radial-gradient(circle at top, #0b3a4a, #06141c);
+    background-image: url("https://wallpapercave.com/wp/ClILpxL.jpg"); /* 🔥 PUT YOUR IMAGE HERE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+}
+
+/* PARTICLES */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
 }
 
 /* NAVBAR */
 .navbar {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 15px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(12px);
+    gap: 50px;
+    padding: 18px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
 }
 
 .navbar a {
@@ -35,43 +56,38 @@ body {
 }
 
 .navbar a:hover {
-    text-shadow: 0 0 12px #00d4ff;
-    transform: scale(1.1);
+    text-shadow: 0 0 15px #00d4ff;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 90px 20px;
+    padding: 120px 20px;
 }
 
 .hero h1 {
-    font-size: 52px;
-}
-
-.hero p {
-    opacity: 0.8;
+    font-size: 60px;
 }
 
 .status {
-    margin-top: 10px;
-    color: #00d4ff;
+    margin-top: 15px;
+    color: #00eaff;
 }
 
 /* BUTTON */
 button {
-    padding: 14px 28px;
-    margin-top: 20px;
-    background: linear-gradient(45deg, #00c8ff, #0099cc);
+    padding: 15px 30px;
+    margin-top: 25px;
+    background: linear-gradient(45deg, #00eaff, #008cff);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     color: white;
 }
 
 button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px #00d4ff;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00d4ff;
 }
 
 /* CONTAINER */
@@ -83,34 +99,41 @@ button:hover {
 
 /* CARDS */
 .card {
-    background: rgba(0, 200, 255, 0.08);
-    border: 1px solid rgba(0, 200, 255, 0.3);
-    border-radius: 16px;
-    padding: 25px;
-    margin: 25px 0;
-    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,200,255,0.3);
+    border-radius: 18px;
+    padding: 30px;
+    margin: 30px 0;
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 30px #00d4ff;
 }
 
 /* GRID */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 25px;
 }
 
 /* FEATURES */
 .features {
     display: flex;
     justify-content: space-around;
-    margin: 30px 0;
-    text-align: center;
-    font-size: 18px;
+    margin: 40px 0;
+    color: #00d4ff;
 }
 </style>
 
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <!-- NAVBAR -->
 <div class="navbar">
@@ -197,15 +220,48 @@ src="https://www.youtube.com/embed/v9b6AyYibeo" allowfullscreen></iframe>
 </div>
 
 <script>
+// ADMIN LOGIN
 function adminLogin() {
     let password = prompt("Enter admin password:");
-
-    if (password === "crabby=xSgv2rHh4gcBY") {
+    if (password === "crabbyadmin") {
         window.location.href = "admin.html";
     } else if (password !== null) {
         alert("Incorrect password");
     }
 }
+
+// PARTICLES
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2
+    });
+}
+
+function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "white";
+
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+
+        p.y -= 0.3;
+        if (p.y < 0) p.y = canvas.height;
+    });
+
+    requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
