@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.25s ease-in-out;
+}
+
+body {
+    font-family: Arial;
+    color: white;
+    background: radial-gradient(circle at top, #0b3a4a, #06141c);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* LOGIN */
+.login-box {
+    text-align: center;
+    margin-top: 120px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    margin-top: 10px;
+    background: linear-gradient(45deg, #00c8ff, #0099cc);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00d4ff;
+}
+
+/* PANEL */
+.panel {
+    display: none;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.card {
+    background: rgba(0, 200, 255, 0.08);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px 0;
+    backdrop-filter: blur(12px);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="rules.html">Rules</a>
+</div>
+
+<!-- LOGIN -->
+<div class="login-box" id="loginBox">
+    <h1>🔐 Admin Login</h1>
+
+    <input type="password" id="password" placeholder="Enter password">
+    <br>
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- PANEL -->
+<div class="panel" id="panel">
+
+    <h1 style="text-align:center;">📊 Applications Dashboard</h1>
+
+    <div class="card">
+        <h2>📥 View Applications</h2>
+        <p>Open all submitted applications from Formspree:</p>
+
+        <a href="https://formspree.io/forms/xnjggkwd/submissions" target="_blank">
+            <button>Open Submissions</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>📢 Application Status</h2>
+        <p>Wave Status: OPEN</p>
+        <p>Change this manually in index.html</p>
+    </div>
+
+    <div class="card">
+        <h2>🧠 Admin Notes</h2>
+        <p>• Review applications daily</p>
+        <p>• Accept/deny through Discord</p>
+        <p>• Watch for duplicate Discord usernames</p>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    const pass = document.getElementById("password").value;
+
+    if (pass === "crabby=xSgv2rHh4gcBY") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("panel").style.display = "block";
+    } else {
+        alert("Wrong password");
+    }
+}
+</script>
+
+</body>
+</html>

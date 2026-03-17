@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crabby's Civilization Experiment</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.25s ease-in-out;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: radial-gradient(circle at top, #0b3a4a, #06141c);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 12px #00d4ff;
+    transform: scale(1.1);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+}
+
+.hero p {
+    opacity: 0.8;
+}
+
+.status {
+    margin-top: 10px;
+    color: #00d4ff;
+}
+
+/* BUTTON */
+button {
+    padding: 14px 28px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #00c8ff, #0099cc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* CARDS */
+.card {
+    background: rgba(0, 200, 255, 0.08);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 16px;
+    padding: 25px;
+    margin: 25px 0;
+    backdrop-filter: blur(12px);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    text-align: center;
+    font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="rules.html">Rules</a>
+    <a href="#" onclick="adminLogin()">Admin</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>🦀 Crabby's Civilization Experiment</h1>
+    <p>Post-Apocalyptic Season 4</p>
+
+    <div class="status">📢 Applications: OPEN</div>
+
+    <a href="apply.html">
+        <button>Apply Now</button>
+    </a>
+</div>
+
+<div class="container">
+
+<!-- FEATURES -->
+<div class="features">
+    <div>⚔️ Wars</div>
+    <div>🏙️ Civilizations</div>
+    <div>🤝 Alliances</div>
+    <div>💀 Survival</div>
+</div>
+
+<!-- ABOUT -->
+<div class="card">
+<h2>🌍 About The Event</h2>
+<p>
+A brutal post-apocalyptic civilization experiment where players must survive,
+rebuild, and dominate in a destroyed world.
+Alliances will form. Wars will happen. Only the strongest will survive.
+</p>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+<div class="card">
+<h2>⚔️ Gameplay</h2>
+<ul>
+<li>Custom world</li>
+<li>Player civilizations</li>
+<li>Wars & alliances</li>
+<li>Resource scarcity</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📋 Requirements</h2>
+<ul>
+<li>Active players</li>
+<li>Teamwork</li>
+<li>Minecraft experience</li>
+<li>Event participation</li>
+</ul>
+</div>
+
+</div>
+
+<!-- TRAILER -->
+<div class="card">
+<h2>🎬 Trailer</h2>
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/v9b6AyYibeo" allowfullscreen></iframe>
+</div>
+
+<!-- JOIN -->
+<div class="card">
+<h2>🚀 Join Season 4</h2>
+<p>Think you can survive the apocalypse?</p>
+
+<a href="apply.html">
+<button>Submit Application</button>
+</a>
+</div>
+
+</div>
+
+<script>
+function adminLogin() {
+    let password = prompt("Enter admin password:");
+
+    if (password === "crabby=xSgv2rHh4gcBY") {
+        window.location.href = "admin.html";
+    } else if (password !== null) {
+        alert("Incorrect password");
+    }
+}
+</script>
+
+</body>
+</html>

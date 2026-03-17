@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apply - Crabby's Civilization Experiment</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.25s ease-in-out;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: radial-gradient(circle at top, #0b3a4a, #06141c);
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 12px #00d4ff;
+    transform: scale(1.1);
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 750px;
+    margin: auto;
+    padding: 50px 0;
+}
+
+/* FORM BOX */
+.form-box {
+    background: rgba(0, 200, 255, 0.08);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* SECTION */
+.section-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* BUTTON */
+button {
+    padding: 14px;
+    width: 100%;
+    margin-top: 15px;
+    background: linear-gradient(45deg, #00c8ff, #0099cc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+/* MESSAGE */
+.blocked {
+    text-align: center;
+    margin-top: 100px;
+}
+</style>
+
+</head>
+
+<body>
+
+<script>
+// 🔒 BLOCK MULTIPLE APPLICATIONS
+if (localStorage.getItem("applied")) {
+    document.write(`
+        <div class="blocked">
+            <h1>❌ You have already applied</h1>
+            <p>You can apply again when a new wave opens.</p>
+        </div>
+    `);
+}
+</script>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="rules.html">Rules</a>
+</div>
+
+<div class="container">
+
+<h1>📝 Season 4 Application</h1>
+
+<div class="form-box">
+
+<form action="https://formspree.io/f/xnjggkwd" method="POST">
+
+<h3 class="section-title">👤 Basic Info</h3>
+
+<input type="text" name="username" placeholder="Minecraft Username" required>
+<input type="text" name="discord" placeholder="Discord Username (e.g. user#1234)" required>
+<input type="number" name="age" placeholder="Age" required>
+<input type="text" name="location" placeholder="Country & Timezone (e.g. UK GMT)" required>
+
+<h3 class="section-title">🎮 Experience</h3>
+
+<textarea name="experience" placeholder="What experience do you have with civilization events?" required></textarea>
+
+<h3 class="section-title">💀 Survival</h3>
+
+<textarea name="survival" placeholder="How would you survive in a post-apocalyptic world?" required></textarea>
+
+<h3 class="section-title">⚔️ Skills</h3>
+
+<textarea name="skills" placeholder="What skills do you bring?" required></textarea>
+
+<h3 class="section-title">🚀 Final Question</h3>
+
+<textarea name="why" placeholder="Why should we accept you?" required></textarea>
+
+<label>
+<input type="checkbox" required>
+ I agree to the rules
+</label>
+
+<button type="submit" onclick="localStorage.setItem('applied','true')">
+Submit Application
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
