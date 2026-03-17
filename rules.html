@@ -2,36 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Rules - Crabby's Civilization Experiment</title>
+<title>Server Rules</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.25s ease-in-out;
 }
 
+/* BACKGROUND */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     color: white;
-    background: radial-gradient(circle at top, #0b3a4a, #06141c);
-    animation: fadeIn 1s ease;
+    background-image: url("https://wallpapercave.com/wp/snjNQdA.jpg"); /* ADD IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: -1;
 }
 
 /* NAVBAR */
 .navbar {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 15px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(12px);
+    gap: 50px;
+    padding: 18px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
 }
 
 .navbar a {
@@ -40,9 +47,14 @@ body {
     font-weight: bold;
 }
 
-.navbar a:hover {
-    text-shadow: 0 0 12px #00d4ff;
-    transform: scale(1.1);
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.header h1 {
+    font-size: 44px;
 }
 
 /* CONTAINER */
@@ -50,47 +62,46 @@ body {
     width: 90%;
     max-width: 900px;
     margin: auto;
-    padding: 50px 0;
 }
 
-/* TITLE */
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-/* CARD */
-.card {
-    background: rgba(0, 200, 255, 0.08);
-    border: 1px solid rgba(0, 200, 255, 0.3);
-    border-radius: 16px;
+/* RULE CARDS */
+.rule {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,200,255,0.3);
+    border-radius: 18px;
     padding: 25px;
     margin: 20px 0;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    transition: 0.25s;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(0,200,255,0.5);
+.rule:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px #00d4ff;
 }
 
-/* SECTION TITLES */
-.card h2 {
-    color: #00d4ff;
+.rule h2 {
+    color: #00eaff;
     margin-bottom: 10px;
 }
 
-/* TEXT */
-.card p {
-    line-height: 1.6;
+.rule p {
+    margin: 6px 0;
+    opacity: 0.9;
 }
 
-/* FOOTER */
-.footer {
-    text-align: center;
+/* NOTICE BOX */
+.notice {
+    background: rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,0,0,0.4);
     padding: 20px;
-    opacity: 0.6;
+    border-radius: 14px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.notice p {
+    margin: 5px 0;
 }
 </style>
 
@@ -98,108 +109,82 @@ h1 {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <a href="index.html">Home</a>
     <a href="apply.html">Apply</a>
     <a href="rules.html">Rules</a>
 </div>
 
+<div class="header">
+    <h1>📜 Server Rules</h1>
+</div>
+
 <div class="container">
 
-<h1>📜 Server Rules</h1>
-
-<div class="card">
+<div class="rule">
 <h2>I. RESPECT & CONDUCT</h2>
-<p>
-Treat all players with respect at all times.<br>
-Harassment, insults, discrimination, or toxicity are not allowed.<br>
-Keep disagreements civil and in-character when possible.
-</p>
+<p>Treat all players with respect at all times.</p>
+<p>No harassment, insults, discrimination, or toxicity.</p>
+<p>Keep disagreements civil and in-character when possible.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>II. CLEAN & APPROPRIATE CHAT</h2>
-<p>
-No hate speech, slurs, or offensive language.<br>
-No sexual content or implications, especially involving minors.<br>
-Political topics, personal drama, and controversial subjects must stay out of public chat.
-</p>
+<p>No hate speech, slurs, or offensive language.</p>
+<p>No sexual content or implications.</p>
+<p>No political or controversial topics in public chat.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>III. NO SPAM OR ADVERTISING</h2>
-<p>
-Do not flood chat with messages, symbols, or noise.<br>
-No advertising in public chat or private messages without staff approval.<br>
-Consult an Admin through tickets before promoting anything.
-</p>
+<p>No flooding chat or spam.</p>
+<p>No advertising without staff approval.</p>
+<p>Contact Admin before promoting anything.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>IV. PRIVACY & SAFETY</h2>
-<p>
-Do not share personal information, private messages, or identities without permission.<br>
-Respect everyone’s privacy.
-</p>
+<p>Do not share personal information.</p>
+<p>Respect everyone’s privacy.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>V. VOICE CHAT CONDUCT</h2>
-<p>
-No screaming, mic abuse, or disruptive noises.<br>
-Keep voice chat calm and respectful.
-</p>
+<p>No screaming or mic abuse.</p>
+<p>Keep voice chat respectful.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>VI. NAMES, SKINS & PROFILES</h2>
-<p>
-Usernames, skins, avatars, and statuses must be appropriate.<br>
-No impersonating staff or other players.
-</p>
+<p>Keep usernames and profiles appropriate.</p>
+<p>No impersonation.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>VII. USE COMMON SENSE</h2>
-<p>
-Not every rule can be listed.<br>
-If something feels wrong or unfair, do not do it.
-</p>
+<p>If something feels wrong, don’t do it.</p>
 </div>
 
-<div class="card">
+<div class="rule">
 <h2>VIII. CIV EVENT RULES</h2>
-<p>
-No alliances, recruiting, peace treaties, bounties, or wars before events officially begin.<br>
-Lore actions should happen during the event.<br>
-Do not use pre-made large Discord servers to mass recruit players.<br>
-Recruiting should be done in-character and within the lore.
-</p>
+<p>No alliances or wars before event start.</p>
+<p>Lore actions must happen during event.</p>
+<p>No mass recruiting via Discord servers.</p>
+<p>Recruit in-character only.</p>
 </div>
 
-<div class="card">
-<h2>IX. ZERO TOLERANCE BEHAVIOR</h2>
-<p>
-Any predatory, sexual, or highly inappropriate behavior will result in immediate removal with no warnings.
-</p>
+<div class="rule">
+<h2>IX. ZERO TOLERANCE</h2>
+<p>Any predatory or highly inappropriate behavior = instant ban.</p>
 </div>
 
-<div class="card">
-<h2>⚖️ Enforcement</h2>
-<p>
-Rule breaking usually follows escalation:<br>
-Warning → Mute → Ban<br><br>
-Certain actions (impersonation, predatory behavior, cheating) may result in instant bans.<br><br>
-Carry yourself responsibly.<br>
-Use common sense.
-</p>
+<div class="notice">
+<p>⚠️ Rule breaking may result in:</p>
+<p><b>Warning → Mute → Ban</b></p>
+<p>Severe actions may result in instant bans.</p>
+<p><b>Use common sense. Carry yourself responsibly.</b></p>
 </div>
 
-</div>
-
-<div class="footer">
-<p>© 2026 Crabby's Civilization Experiment</p>
 </div>
 
 </body>
