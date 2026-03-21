@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FAQ</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    font-family: Arial;
+    color: white;
+    background-image: url("https://wallpapercave.com/wp/snjNQdA.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:15px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color:#00d4ff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 10px #00d4ff;
+}
+
+/* CONTAINER */
+.container {
+    width:90%;
+    max-width:800px;
+    margin:auto;
+    padding:60px 0;
+}
+
+/* TITLE */
+.title {
+    text-align:center;
+    font-size:42px;
+    margin-bottom:30px;
+}
+
+/* FAQ ITEM */
+.faq {
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(0,200,255,0.3);
+    border-radius:14px;
+    margin:15px 0;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+/* HEADER */
+.faq-header {
+    padding:18px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.faq:hover {
+    box-shadow:0 0 20px #00d4ff;
+}
+
+/* QUESTION */
+.question {
+    font-size:18px;
+}
+
+/* ARROW */
+.arrow {
+    font-size:18px;
+    transition:0.3s;
+}
+
+/* ANSWER */
+.answer {
+    max-height:0;
+    overflow:hidden;
+    padding:0 18px;
+    opacity:0.7;
+    transition: all 0.3s ease;
+}
+
+/* OPEN STATE */
+.faq.active .answer {
+    max-height:200px;
+    padding:15px 18px;
+}
+
+.faq.active .arrow {
+    transform: rotate(180deg);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<a href="index.html">Home</a>
+<a href="apply.html">Apply</a>
+<a href="rules.html">Rules</a>
+<a href="faq.html">FAQ</a>
+</div>
+
+<div class="container">
+
+<div class="title">❓ FAQ</div>
+
+<!-- FAQ ITEM -->
+<div class="faq">
+    <div class="faq-header">
+        <div class="question">How long do applications take?</div>
+        <div class="arrow">▼</div>
+    </div>
+    <div class="answer">
+        Applications are usually reviewed within 1–3 days depending on volume.
+    </div>
+</div>
+
+<div class="faq">
+    <div class="faq-header">
+        <div class="question">Can I reapply?</div>
+        <div class="arrow">▼</div>
+    </div>
+    <div class="answer">
+        Yes. If you are not accepted, you can reapply in the next application wave.
+    </div>
+</div>
+
+<div class="faq">
+    <div class="faq-header">
+        <div class="question">Do I need a team?</div>
+        <div class="arrow">▼</div>
+    </div>
+    <div class="answer">
+        No. Teams and alliances are formed during the event itself.
+    </div>
+</div>
+
+<div class="faq">
+    <div class="faq-header">
+        <div class="question">How will I know if I got accepted?</div>
+        <div class="arrow">▼</div>
+    </div>
+    <div class="answer">
+        You will be contacted through Discord if you are accepted.
+    </div>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll(".faq").forEach(faq => {
+    faq.querySelector(".faq-header").addEventListener("click", () => {
+        faq.classList.toggle("active");
+    });
+});
+</script>
+
+</body>
+</html>
