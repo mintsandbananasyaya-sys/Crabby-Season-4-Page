@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About / Lore</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-image: url("https://wallpapercave.com/wp/snjNQdA.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:15px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color:#00d4ff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.navbar a:hover {
+    text-shadow:0 0 10px #00d4ff;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:120px 20px 60px;
+}
+
+.hero h1 {
+    font-size:56px;
+    letter-spacing:1px;
+}
+
+.hero p {
+    opacity:0.7;
+    margin-top:10px;
+}
+
+/* CONTAINER */
+.container {
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
+/* LORE BLOCK */
+.section {
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(0,200,255,0.3);
+    border-radius:18px;
+    padding:30px;
+    margin:30px 0;
+    backdrop-filter: blur(10px);
+    transition:0.3s;
+}
+
+.section:hover {
+    box-shadow:0 0 25px #00d4ff;
+    transform:translateY(-5px);
+}
+
+.section h2 {
+    color:#00eaff;
+    margin-bottom:10px;
+}
+
+.section p {
+    line-height:1.6;
+    opacity:0.9;
+}
+
+/* DIVIDER */
+.divider {
+    text-align:center;
+    margin:40px 0;
+    opacity:0.4;
+}
+
+/* QUOTE */
+.quote {
+    text-align:center;
+    font-style:italic;
+    opacity:0.7;
+    margin:30px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<a href="index.html">Home</a>
+<a href="apply.html">Apply</a>
+<a href="rules.html">Rules</a>
+<a href="about.html">Lore</a>
+<a href="faq.html">FAQ</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>🌍 The World of Season 4</h1>
+<p>A civilization reborn from the ashes</p>
+</div>
+
+<div class="container">
+
+<div class="section">
+<h2>📖 The Collapse</h2>
+<p>
+NO LORE YET
+</p>
+</div>
+
+<div class="divider">──────────</div>
+
+<div class="section">
+<h2>⚔️ The New World</h2>
+<p>
+NO LORE YET
+</p>
+</div>
+
+<div class="quote">
+“Survival is no longer enough… power is everything.”
+</div>
+
+<div class="section">
+<h2>🏙️ Civilizations Rise</h2>
+<p>
+NO LORE YET
+</p>
+</div>
+
+<div class="divider">──────────</div>
+
+<div class="section">
+<h2>💀 The Dangers</h2>
+<p>
+NO LORE YET
+</p>
+</div>
+
+<div class="section">
+<h2>🚀 Your Story</h2>
+<p>
+NO LORE YET
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
