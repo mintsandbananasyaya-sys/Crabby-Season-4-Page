@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leaderboard</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* BACKGROUND */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-image: url("https://wallpapercave.com/wp/snjNQdA.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::before {
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:15px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color:#00d4ff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* TITLE */
+.title {
+    text-align:center;
+    margin-top:60px;
+}
+
+.title h1 {
+    font-size:48px;
+}
+
+.title p {
+    opacity:0.7;
+}
+
+/* TABLE */
+.container {
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.table {
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+/* HEADER */
+.table thead {
+    background:rgba(0,200,255,0.2);
+}
+
+/* ROWS */
+.table th, .table td {
+    padding:15px;
+    text-align:center;
+}
+
+/* ROW STYLE */
+.table tbody tr {
+    background:rgba(0,0,0,0.7);
+    border-bottom:1px solid rgba(0,200,255,0.2);
+    transition:0.3s;
+}
+
+.table tbody tr:hover {
+    background:rgba(0,200,255,0.1);
+    transform:scale(1.02);
+}
+
+/* TOP PLAYERS */
+.gold { color: gold; }
+.silver { color: silver; }
+.bronze { color: #cd7f32; }
+
+/* GLOW */
+.table {
+    box-shadow:0 0 30px rgba(0,200,255,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<a href="index.html">Home</a>
+<a href="apply.html">Apply</a>
+<a href="rules.html">Rules</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="faq.html">FAQ</a>
+</div>
+
+<div class="title">
+<h1>🏆 Leaderboard</h1>
+<p>Top players of Season 4</p>
+</div>
+
+<div class="container">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Rank</th>
+<th>Player</th>
+<th>Kills</th>
+<th>Nation</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr class="gold">
+<td>🥇 1</td>
+<td>PlayerOne</td>
+<td>0</td>
+<td>N/A</td>
+</tr>
+
+<tr class="silver">
+<td>🥈 2</td>
+<td>PlayerTwo</td>
+<td>0</td>
+<td>N/A</td>
+</tr>
+
+<tr class="bronze">
+<td>🥉 3</td>
+<td>PlayerThree</td>
+<td>0</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>PlayerFour</td>
+<td>0</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>PlayerFive</td>
+<td>0</td>
+<td>N/A</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</body>
+</html>
