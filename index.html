@@ -2,269 +2,109 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Crabby's Civilization Experiment</title>
+<title>Crabby Civilization</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* {margin:0; padding:0; box-sizing:border-box;}
 
-/* BACKGROUND IMAGE + OVERLAY */
 body {
-    font-family: 'Inter', sans-serif;
-    color: white;
-    background-image: url("https://wallpapercave.com/wp/snjNQdA.jpg"); /* 🔥 PUT YOUR IMAGE HERE */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    font-family: Arial;
+    color:white;
+    background:url("https://wallpapercave.com/wp/snjNQdA.jpg") center/cover no-repeat;
+    height:100vh;
 }
 
 /* DARK OVERLAY */
 body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: -1;
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
 }
 
-/* PARTICLES */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -2;
-}
-
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding: 18px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-}
-
-.navbar a {
-    color: #00d4ff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    text-shadow: 0 0 15px #00d4ff;
-}
-
-/* HERO */
+/* CONTENT */
 .hero {
-    text-align: center;
-    padding: 120px 20px;
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:center;
+    padding-left:10%;
 }
 
-.hero h1 {
-    font-size: 60px;
+/* TEXT */
+.text h1 {
+    font-size:70px;
+    line-height:1.1;
 }
 
-.status {
-    margin-top: 15px;
-    color: #00eaff;
+.highlight {
+    color:#00d4ff;
 }
 
-/* BUTTON */
+.text p {
+    margin-top:20px;
+    opacity:0.8;
+    max-width:500px;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top:30px;
+}
+
 button {
-    padding: 15px 30px;
-    margin-top: 25px;
-    background: linear-gradient(45deg, #00eaff, #008cff);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    color: white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    margin-right:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
+.apply {
+    background:#00d4ff;
+    color:black;
+}
+
+.enter {
+    background:transparent;
+    border:1px solid #00d4ff;
+    color:#00d4ff;
+}
+
+/* HOVER */
 button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #00d4ff;
-}
-
-/* CONTAINER */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* CARDS */
-.card {
-    background: rgba(0,0,0,0.6);
-    border: 1px solid rgba(0,200,255,0.3);
-    border-radius: 18px;
-    padding: 30px;
-    margin: 30px 0;
-    backdrop-filter: blur(10px);
-    transform: translateY(0);
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 30px #00d4ff;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-/* FEATURES */
-.features {
-    display: flex;
-    justify-content: space-around;
-    margin: 40px 0;
-    color: #00d4ff;
+    transform:scale(1.05);
 }
 </style>
-
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-
-<!-- NAVBAR -->
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="apply.html">Apply</a>
-    <a href="rules.html">Rules</a>
-    <a href="#" onclick="adminLogin()">Admin</a>
-    <a href="faq.html">FAQ</a>
-    <a href="leaderboard.html">Leaderboard</a>
-</div>
-
-<!-- HERO -->
 <div class="hero">
-    <h1>🦀 Crabby's Civilization Experiment</h1>
-    <p>Post-Apocalyptic Season 4</p>
 
-    <div class="status">📢 Applications: OPEN</div>
+<div class="text">
 
-    <a href="apply.html">
-        <button>Apply Now</button>
-    </a>
-</div>
+<p>SEASON 4 — NOW OPEN</p>
 
-<div class="container">
-
-<!-- FEATURES -->
-<div class="features">
-    <div>⚔️ Wars</div>
-    <div>🏙️ Civilizations</div>
-    <div>🤝 Alliances</div>
-    <div>💀 Survival</div>
-</div>
-
-<!-- ABOUT -->
-<a href="about.html" style="text-decoration: none; color: inherit;">
-<div class="card">
-
-<h2>🌍 About The Event</h2>
+<h1>
+CRABBY'S<br>
+<span class="highlight">CIVILIZATION</span>
+</h1>
 
 <p>
-A brutal post-apocalyptic civilization experiment where players must survive, rebuild, and dominate in a destroyed world. Alliances will form. Wars will happen. Only the strongest will survive.
+Build civilizations, wage wars, form alliances, and dominate the world.
 </p>
 
-<p style="margin-top:15px; color:#00d4ff; font-weight:bold;">
-→ Click to explore the full story
-</p>
-
-</div>
-</a>
-
-<!-- GRID -->
-<div class="grid">
-
-<div class="card">
-<h2>⚔️ Gameplay</h2>
-<ul>
-<li>Custom world</li>
-<li>Player civilizations</li>
-<li>Wars & alliances</li>
-<li>Resource scarcity</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>📋 Requirements</h2>
-<ul>
-<li>Active players</li>
-<li>Teamwork</li>
-<li>Minecraft experience</li>
-<li>Event participation</li>
-</ul>
-</div>
-
-</div>
-    
-<!-- JOIN -->
-<div class="card">
-<h2>🚀 Join Season 4</h2>
-<p>Think you can survive the apocalypse?</p>
-
-<a href="apply.html">
-<button>Submit Application</button>
-</a>
+<div class="buttons">
+<a href="apply.html"><button class="apply">Apply Now</button></a>
+<a href="home.html"><button class="enter">Enter Site</button></a>
 </div>
 
 </div>
 
-<script>
-// ADMIN LOGIN
-function adminLogin() {
-    let password = prompt("Enter admin password:");
-    if (password === "crabby=xSgv2rHh4gcBY") {
-        window.location.href = "admin.html";
-    } else if (password !== null) {
-        alert("Incorrect password");
-    }
-}
-
-// PARTICLES
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for (let i = 0; i < 80; i++) {
-    particles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*2
-    });
-}
-
-function draw() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = "white";
-
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
-
-        p.y -= 0.3;
-        if (p.y < 0) p.y = canvas.height;
-    });
-
-    requestAnimationFrame(draw);
-}
-draw();
-</script>
+</div>
 
 </body>
 </html>
