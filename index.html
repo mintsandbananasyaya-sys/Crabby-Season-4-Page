@@ -8,24 +8,72 @@
 * {margin:0; padding:0; box-sizing:border-box;}
 
 body {
-    font-family: Arial;
+    font-family: 'Inter', sans-serif;
     color:white;
-    background:url("https://wallpapercave.com/wp/snjNQdA.jpg") center/cover no-repeat;
     height:100vh;
+    overflow:hidden;
+    background:black;
 }
 
-/* DARK OVERLAY */
-body::before {
-    content:"";
+/* BACKGROUND IMAGE */
+.bg {
     position:absolute;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.7);
+    background:url("https://wallpapercave.com/wp/snjNQdA.jpg") center/cover no-repeat;
+    z-index:-3;
+    transform:scale(1.1);
+    animation:zoom 20s ease-in-out infinite alternate;
 }
 
-/* CONTENT */
+@keyframes zoom {
+    from {transform:scale(1.1);}
+    to {transform:scale(1.2);}
+}
+
+/* DARK OVERLAY */
+.overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+    z-index:-2;
+}
+
+/* PARTICLES */
+canvas {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar {
+    position:absolute;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:15px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color:#00d4ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.navbar a:hover {
+    text-shadow:0 0 10px #00d4ff;
+}
+
+/* HERO */
 .hero {
-    position:relative;
     height:100%;
     display:flex;
     align-items:center;
@@ -34,37 +82,43 @@ body::before {
 
 /* TEXT */
 .text h1 {
-    font-size:70px;
+    font-size:80px;
     line-height:1.1;
+    animation:fadeUp 1s ease forwards;
 }
 
 .highlight {
     color:#00d4ff;
+    text-shadow:0 0 20px #00d4ff;
 }
 
 .text p {
     margin-top:20px;
     opacity:0.8;
     max-width:500px;
+    animation:fadeUp 1.5s ease forwards;
 }
 
 /* BUTTONS */
 .buttons {
     margin-top:30px;
+    animation:fadeUp 2s ease forwards;
 }
 
 button {
-    padding:12px 25px;
+    padding:14px 30px;
     border:none;
-    border-radius:8px;
-    margin-right:10px;
+    border-radius:10px;
+    margin-right:15px;
     cursor:pointer;
     font-weight:bold;
+    transition:0.3s;
 }
 
 .apply {
     background:#00d4ff;
     color:black;
+    box-shadow:0 0 20px #00d4ff;
 }
 
 .enter {
@@ -73,17 +127,37 @@ button {
     color:#00d4ff;
 }
 
-/* HOVER */
 button:hover {
-    transform:scale(1.05);
+    transform:scale(1.08);
+    box-shadow:0 0 30px #00d4ff;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<div class="bg"></div>
+<div class="overlay"></div>
 
+<canvas id="particles"></canvas>
+
+<div class="navbar">
+<p>Welcome to Crabby's Civilization Season 4 Website soon to be official website after season 4!</p>
+</div>
+
+<div class="hero">
 <div class="text">
 
 <p>SEASON 4 — NOW OPEN</p>
@@ -94,7 +168,8 @@ CRABBY'S<br>
 </h1>
 
 <p>
-Build civilizations, wage wars, form alliances, and dominate the world.
+Build empires. Wage wars. Form alliances.  
+Dominate a world where only the strongest survive.
 </p>
 
 <div class="buttons">
@@ -103,8 +178,44 @@ Build civilizations, wage wars, form alliances, and dominate the world.
 </div>
 
 </div>
-
 </div>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*2,
+        speed:Math.random()*0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.y -= p.speed;
+        if(p.y < 0) p.y = canvas.height;
+
+        ctx.fillStyle="rgba(0,212,255,0.7)";
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
 </body>
 </html>
